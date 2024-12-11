@@ -7,5 +7,11 @@
 
 import Foundation
 
-print("Hello, World!")
+print("Welcome to The Guess the Number Game!")
+print("Guess a number between 1 and 100.")
+
+var randomNum = Int.random(in: 1...100)
+
+var answer = readLine()!
+
 
