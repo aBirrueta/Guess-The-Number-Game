@@ -11,21 +11,34 @@ print("Welcome to The Guess the Number Game!")
 print("Guess a number between 1 and 100.")
 
 var randomNum = Int.random(in: 1...100)
-print(randomNum)
 
 var gameNotOver = true
-var guess: Int?
+var guess: Int
+var guessCount = 0
 
 while gameNotOver{
     var number = readLine()!
-    guess = Int(number)
-    
-    if guess == randomNum {
-        print("you guessed the number right GOOD JOB!")
-        gameNotOver = false
+    var maybeGuess = Int(number)
+    if maybeGuess == nil {
+        print("Thats not a number try again.")
     }
-    if guess < randomNum{
-        print("Your guess was too little guess again.")
+    else {
+        guessCount = guessCount+1
+        guess = maybeGuess!
+        if guess == randomNum {
+            print("you guessed the number right GOOD JOB!")
+            print("You guessed "+String(guessCount)+" times to get it right.")
+            gameNotOver = false
+            
+        }
+        if guess < randomNum{
+            print("Your guess is too little guess again.")
+        }
+        if guess > randomNum{
+            print("Your guess is too big guess again.")
+        
+        }
     }
 }
+
 
